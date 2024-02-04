@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Form</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], textarea {
+            width: 400px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+    <link href="bootstrap.min.css" rel="stylesheet" >
+  <script src="bootstrap.bundle.min.js"></script>
+ <style>
+        #uk-time {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+<center>
+<body style="background-color:aqua;" class="container">
+    <h1>Current UK Time</h1>
+    <div id="uk-time"></div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('uk-time').innerText = now.toLocaleTimeString('en-UK', options);
+        }
+
+        updateTime(); // Call the function when the page loads
+        setInterval(updateTime, 1000); // Update the time every second
+    </script>
+    <h2>Support Form</h2>
+	<div class="row">
+		<div class="col">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sas">
+			SAS Form
+		</button>
+			
+		</div>
+		<div class="col">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sme">
+			SME Form
+		</button>
+		</div>
+	
+	</div>
+
+		<!-- The Modal -->
+		<div class="modal" id="sas">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">SAS Form</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<form id="sasForm">
+                <div>
+                    <label for="name" class="form-label">SAS Approach:</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+                <div>
+                    <label for="customerId" class="form-label">SAS Medium Code:</label>
+                    <input type="text" id="customerId" name="customerId" class="form-control">
+                </div>
+                <div>
+                    <label for="customerId" class="form-label">Product Offered:</label>
+                    <input type="text" id="customerId" name="customerId" class="form-control">
+                </div>
+                <div>
+                    <label for="callback" class="form-label">Product Sold:</label>
+                    <input type="text" id="callback" name="callback" class="form-control">
+                </div>
+                <div>
+                    <label for="verified" class="form-label">Call Queue:</label>
+                    <input type="text" id="verified" name="verified" class="form-control">
+                </div>
+                <div>
+                    <label for="intId" class="form-label">Call ID:</label>
+                    <input type="text" id="intId" name="intId" class="form-control">
+                </div>
+                <div>
+                    <label for="issueReason" class="form-label">Call Recorded:</label>
+                    <input type="text" id="issueReason" name="issueReason" class="form-control">
+                </div>
+                <div>
+                    <label for="resu" class="form-label">Order ID:</label>
+                    <input type="text" id="resu" name="resu" class="form-control">
+                </div>
+                <div>
+                    <label for="issueResolved" class="form-label">Type of SAS:</label>
+                    <input type="text" id="issueResolved" name="issueResolved" class="form-control">
+                </div>
+                
+					<button type="button" onclick="clearFormsas()" class="btn btn-lg btn-danger">Clear</button>
+					 <button type="button" id="copyb" class="btn btn-lg btn-success">Copy</button>
+				</form>
+			  </div>
+
+			  <!-- Modal footer -->
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+			  </div>
+
+			</div>
+		  </div>
+		</div>
+		
+		<!-- The Modal -->
+		<div class="modal" id="sme">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">SME </h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<form id="smeForm">
+					<div>
+						<label for="title_A" hidden>Greetings</label>
+						<input type="hidden" id="title_A" name="title_A" value="to the Beautiful and Handsome SME!">
+						
+						<label for="customerId">Customer ID:</label>
+						<input type="text" id="customerId" name="customerId">
+					</div>
+					<div>
+						<label for="callback">Domain/Email/Identifier affected:</label>
+						<input type="text" id="callback" name="callback">
+					</div>
+					<div>
+						<label for="fullname">Full Name:</label>
+						<input type="text" id="fullname" name="fullname">
+					</div>
+					<div>
+						<label for="issueReason">Issue/Reason:</label>
+						<input type="text" id="issueReason" name="issueReason">
+					</div>
+					<div>
+						<label for="resu">TS Done:</label>
+						<input type="text" id="resu" name="resu">
+					</div>
+
+					<button type="button" onclick="clearFormsme()">Clear</button>
+					 <button type="button" id="copyButtona">Copy</button>
+				</form>
+			  </div>
+
+			  <!-- Modal footer -->
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+			  </div>
+
+			</div>
+		  </div>
+		</div>
+	
+    <form id="supportForm">
+                <div>
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+                <div>
+                    <label for="customerId" class="form-label">Customer ID:</label>
+                    <input type="text" id="customerId" name="customerId" class="form-control">
+                </div>
+                <div>
+                    <label for="demc" class="form-label">Domain/Email/Contract ID:</label>
+                    <input type="text" id="demc" name="demc" class="form-control">
+                </div>
+                <div>
+                    <label for="callback" class="form-label">Callback #:</label>
+                    <input type="text" id="callback" name="callback" class="form-control">
+                </div>
+                <div>
+                    <label for="verified" class="form-label">Verified (Y/N):</label>
+                    <input type="text" id="verified" name="verified" class="form-control">
+                </div>
+                <div>
+                    <label for="intId" class="form-label">Interaction ID:</label>
+                    <input type="text" id="intId" name="intId" class="form-control">
+                </div>
+                <div>
+                    <label for="issueReason" class="form-label">Issue/Reason:</label>
+                    <input type="text" id="issueReason" name="issueReason" class="form-control">
+                </div>
+                <div>
+                    <label for="resu" class="form-label">Resolution:</label>
+                    <input type="text" id="resu" name="resu" class="form-control">
+                </div>
+                <div>
+                    <label for="issueResolved" class="form-label">Issue Resolved (Y/N):</label>
+                    <input type="text" id="issueResolved" name="issueResolved" class="form-control">
+                </div>
+				<div>
+                    <label for="Status" class="form-label">Status:</label>
+                    <input type="text" id="Status" name="Status" class="form-control">
+                </div>
+				
+        <button type="button" onclick="clearForm()" class="btn btn-lg btn-danger">Clear</button>
+        <button type="button" id="copyForm" class="btn btn-lg btn-success">Copy</button>
+    </form>
+    
+    
+
+    <script>
+        function clearForm() {
+            document.getElementById("supportForm").reset();
+            document.getElementById("SASForm").reset();
+        }
+
+        // Get the form and copy button
+		var forms = document.getElementById('supportForm');
+		var copyForm = document.getElementById('copyForm');
+
+		// When the user clicks the button, copy the input field labels and values to the clipboard
+		copyForm.addEventListener('click', function() {
+		  var combinedText = '';
+		  var inputs = forms.querySelectorAll('input');
+		  inputs.forEach(function(input) {
+			var label = forms.querySelector('label[for="' + input.id + '"]').textContent;
+			combinedText += label.replace(':', '') + ': ' + input.value + '\n';
+		  });
+
+		  // Create a temporary textarea to copy the combined text
+		  var tempTextArea = document.createElement('textarea');
+		  tempTextArea.value = combinedText;
+		  document.body.appendChild(tempTextArea);
+		  tempTextArea.select();
+		  document.execCommand('copy');
+		  tempTextArea.remove();
+
+		  // Optional: Update user interface to indicate the text was copied
+		  copyForm.textContent = 'Copied!';
+		  setTimeout(function() {
+			copyForm.textContent = 'Copy';
+		  }, 1000);
+		});
+		
+		function clearFormsas() {
+            document.getElementById("sasForm").reset();
+        }
+		
+		function clearFormsme() {
+            document.getElementById("smeForm").reset();
+        }
+		
+			// Get the copy button
+			var copyButtona = document.getElementById('copyButtona');
+			var modala = document.getElementById('sme');
+
+			copyButtona.addEventListener('click', function() {
+			  var combinedText = '';
+			  var inputs = modala.querySelectorAll('.modal-content input');
+			  inputs.forEach(function(input) {
+				var label = modala.querySelector('label[for="' + input.id + '"]').textContent;
+				combinedText += label.replace(':', '') + ': ' + input.value + '\n';
+			  });
+
+			  // Create a temporary textarea to copy the combined text
+			  var tempTextArea = document.createElement('textarea');
+			  tempTextArea.value = combinedText;
+			  document.body.appendChild(tempTextArea);
+			  tempTextArea.select();
+			  document.execCommand('copy');
+			  tempTextArea.remove();
+
+			  // Optional: Update user interface to indicate the text was copied
+			  copyButtona.textContent = 'Copied!';
+			  setTimeout(function() {
+				copyButtona.textContent = 'Copy';
+			  }, 1000);
+			});
+			
+			// Get the copy button
+			var copy = document.getElementById('copyb');
+			var modalb = document.getElementById('sas');
+
+			copy.addEventListener('click', function() {
+			  var combinedText = '';
+			  var inputs = modalb.querySelectorAll('.modal-content input');
+			  inputs.forEach(function(input) {
+				var label = modalb.querySelector('label[for="' + input.id + '"]').textContent;
+				combinedText += label.replace(':', '') + ': ' + input.value + '\n';
+			  });
+
+			  // Create a temporary textarea to copy the combined text
+			  var tempTextArea = document.createElement('textarea');
+			  tempTextArea.value = combinedText;
+			  document.body.appendChild(tempTextArea);
+			  tempTextArea.select();
+			  document.execCommand('copy');
+			  tempTextArea.remove();
+
+			  // Optional: Update user interface to indicate the text was copied
+			  copy.textContent = 'Copied!';
+			  setTimeout(function() {
+				copy.textContent = 'Copy';
+			  }, 1000);
+			});
+		
+		
+    </script>
+</body>
+</html>
+    </center>
