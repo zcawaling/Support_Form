@@ -185,40 +185,40 @@
 	
     <form id="supportForm">
                 <div>
-                    <label for="name" class="form-label">Name:</label>
-                    <input type="text" id="name" name="name" class="form-control">
+                    <label for="name" class="form-label data_text">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control data_text">
                 </div>
                 <div>
-                    <label for="affected" class="form-label">Customer ID/Domain/Email/Contract ID:</label>
-                    <input type="text" id="affected" name="affected" class="form-control">
+                    <label for="affected" class="form-label data_text">Customer ID/Domain/Email/Contract ID:</label>
+                    <input type="text" id="affected" name="affected" class="form-control data_text">
                 </div>
                 <div>
-                    <label for="callback" class="form-label">Callback #:</label>
-                    <input type="text" id="callback" name="callback" class="form-control">
+                    <label for="callback" class="form-label data_text">Callback #:</label>
+                    <input type="text" id="callback" name="callback" class="form-control data_text">
                 </div>
                 <div>
-                    <label for="verified" class="form-label">Verified (Y/N):</label>
-                    <input type="text" id="verified" name="verified" class="form-control">
+                    <label for="verified" class="form-label data_text">Verified (Y/N):</label>
+                    <input type="text" id="verified" name="verified" class="form-control data_text">
                 </div>
                 <div>
-                    <label for="intId" class="form-label">Interaction ID:</label>
-                    <input type="text" id="intId" name="intId" class="form-control">
+                    <label for="intId" class="form-label data_text">Interaction ID:</label>
+                    <input type="text" id="intId" name="intId" class="form-control data_text">
                 </div>
                 <div>
-                    <label for="issueReason" class="form-label">Issue/Reason:</label>
-					<textarea class="form-control" rows="3" id="issueReason" name="issueReason"></textarea>
+                    <label for="issueReason" class="form-label data_text">Issue/Reason:</label>
+					<textarea class="form-control" rows="3" id="issueReason" name="issueReason data_text"></textarea>
                 </div>
                 <div>
-                    <label for="resu" class="form-label">Resolution:</label>
-					<textarea class="form-control" rows="3" id="resu" name="resu"></textarea>
+                    <label for="resu" class="form-label data_text">Resolution:</label>
+					<textarea class="form-control" rows="3" id="resu" name="resu data_text"></textarea>
                 </div>
                 <div>
-                    <label for="issueResolved" class="form-label">Issue Resolved (Y/N):</label>
-                    <input type="text" id="issueResolved" name="issueResolved" class="form-control">
+                    <label for="issueResolved" class="form-label data_text">Issue Resolved (Y/N):</label>
+                    <input type="text" id="issueResolved" name="issueResolved" class="form-control data_text">
                 </div>
 				<div>
-                    <label for="Status" class="form-label">Status:</label>
-                    <input type="text" id="Status" name="Status" class="form-control">
+                    <label for="Status" class="form-label data_text">Status:</label>
+                    <input type="text" id="Status" name="Status" class="form-control data_text">
                 </div>
 				
         <button type="button" onclick="clearForm()" class="btn btn-lg btn-danger">Clear</button>
@@ -240,11 +240,11 @@
 		// When the user clicks the button, copy the input field labels and values to the clipboard
 		copyForm.addEventListener('click', function() {
 		  var combinedText = '';
-		  var inputs = forms.querySelectorAll('input');
-		  inputs.forEach(function(input) {
-			var label = forms.querySelector('label[for="' + input.id + '"]').textContent;
-			combinedText += label.replace(':', '') + ': ' + input.value + '\n';
-		  });
+		  document.querySelectorAll("#supportForm > div").forEach(function(container) {
+			var label = container.querySelector("label").textContent.trim();
+			var input = container.querySelector("input, textarea").value;
+			combinedText += label + input + "\n";
+			});
 
 		  // Create a temporary textarea to copy the combined text
 		  var tempTextArea = document.createElement('textarea');
